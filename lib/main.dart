@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       //Sistema de rutas
       routes: {
         '/': (context) => const Home(), 
-        '/add': (context) => const AddNombre(), 
+        '/add': (context) => const AddNombre(),
       },
     );
   }
