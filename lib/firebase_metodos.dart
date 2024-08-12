@@ -11,7 +11,29 @@ Future<List> obtenerDatos() async {
   queryGente.docs.forEach((documento){
     gente.add(documento.data());
   });
-
-  await Future.delayed(const Duration(seconds: 4));
+  //Dar una duracion de 4 segundos para mostrar que el circulo funciona
+  await Future.delayed(const Duration(seconds: 2));
   return gente;
 }
+
+//Leer datos
+Future<void> leerNombre(String nombre) async {
+  await db.collection("bd_usuarios").add({"nombre": nombre});
+}
+
+//Sintaxis de una base de datos NoSQL de Firebase
+/*
+"bd_usuarios":
+ [
+    {
+      "nombre": "Oscar",
+    },
+    {
+      "nombre": "irene",
+    },
+    {
+      "nombre": "Ulises",
+    },
+    ...
+ ]
+*/

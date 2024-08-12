@@ -1,4 +1,6 @@
-import 'package:firebase_app_3/firebase_metodos.dart';
+
+import 'package:firebase_app_3/paginas/pagina_add_nombre.dart';
+import 'package:firebase_app_3/paginas/pagina_inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -19,41 +21,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: Home(),
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  const Home({
-    super.key,
-  });
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Material App Bar'),
-      ),
-      body: FutureBuilder(
-        future: obtenerDatos(), 
-        builder: (context, snapshot){
-          if(snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data?.length,
-              itemBuilder: (context, index) {
-                return Text(snapshot.data?[index]['nombre']);
-              },
-            );
-          } else {
-            return const Center(child: CircularProgressIndicator(),);
-          }
-        }),
+      //Sistema de rutas
+      routes: {
+        '/': (context) => const Home(), 
+        '/add': (context) => const AddNombre(), 
+      },
     );
   }
 }
