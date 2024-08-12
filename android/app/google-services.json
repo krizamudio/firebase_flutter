@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "186698770372",
+    "project_id": "flutterapp-kris",
+    "storage_bucket": "flutterapp-kris.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186698770372:android:0a319d450c670f11176691",
+        "android_client_info": {
+          "package_name": "com.example.firebase_app_3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeMDUj6m0-kdjQOF9xUliJuTp9KJEw3WE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
