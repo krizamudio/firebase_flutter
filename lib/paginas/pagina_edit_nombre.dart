@@ -23,7 +23,7 @@ class _EditNombreState extends State<EditNombre> {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Material App Bar'),
+          title: const Text('Editar Nombre'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(18.0),

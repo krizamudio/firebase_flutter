@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'Firebase App',
       //Sistema de rutas
       routes: {
         '/': (context) => const Home(), 

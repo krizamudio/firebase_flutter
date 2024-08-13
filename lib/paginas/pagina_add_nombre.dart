@@ -19,7 +19,7 @@ class _AddNombreState extends State<AddNombre> {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Material App Bar'),
+          title: const Text('Añadir Nombre'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(18.0),
