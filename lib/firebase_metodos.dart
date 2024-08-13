@@ -1,3 +1,5 @@
+import 'dart:js_interop_unsafe';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 FirebaseFirestore db = FirebaseFirestore.instance;
@@ -9,7 +11,12 @@ Future<List> obtenerDatos() async {
 
   QuerySnapshot queryGente = await collectionReferenceGente.get();
   queryGente.docs.forEach((documento){
-    gente.add(documento.data());
+    final Map<String, dynamic> datos = documento.data() as Map<String, dynamic>;
+    final persona = {
+      "nombre": datos['nombre'],
+      "uid": documento.id,
+    };
+    gente.add(persona);
   });
   //Dar una duracion de 4 segundos para mostrar que el circulo funciona
   await Future.delayed(const Duration(seconds: 2));
@@ -37,3 +44,13 @@ Future<void> leerNombre(String nombre) async {
     ...
  ]
 */
+
+//Actualizar datos
+Future<void> actualizarNombre(String uid, String nuevonombre) async {
+  await db.collection("bd_usuarios").doc(uid).set({"nombre": nuevonombre});
+}
+
+//Eliminar datos
+Future<void> eliminarNombre(String uid) async{
+  await db.collection("bd_usuarios").doc(uid).delete();
+}

@@ -1,5 +1,6 @@
 
 import 'package:firebase_app_3/paginas/pagina_add_nombre.dart';
+import 'package:firebase_app_3/paginas/pagina_edit_nombre.dart';
 import 'package:firebase_app_3/paginas/pagina_inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Home(), 
         '/add': (context) => const AddNombre(),
+        '/edit': (context) => const EditNombre(),
       },
     );
   }

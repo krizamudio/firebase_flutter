@@ -26,7 +26,45 @@ class _HomeState extends State<Home> {
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: (context, index) {
-                return Text(snapshot.data?[index]['nombre']);
+                return Dismissible(
+                  onDismissed: (direction) async {
+                      await eliminarNombre(snapshot.data?[index]['uid']);
+                      snapshot.data?.removeAt(index);
+                  },
+                  confirmDismiss: (direction) async{
+                      bool resultado = false;
+                      resultado = await showDialog(context: context, builder: (context){
+                        return AlertDialog(
+                          title: Text("¿Quieres eliminar a ${snapshot.data?[index]['nombre']}?"),
+                          actions: [
+                            TextButton(onPressed: () {
+                              return Navigator.pop(context,false);
+                            }, child: const Text("Cancelar", style: TextStyle(color: Colors.red))),
+                            TextButton(onPressed: () {
+                              return Navigator.pop(context,true);
+                            }, child: Text("Si"))
+                          ],
+                        );
+                      });
+                      return resultado;
+                  },
+                  background: Container(
+                    child: const Icon(Icons.delete),
+                    color: Colors.red,
+                  ),
+                  direction: DismissDirection.endToStart,
+                  key: Key(snapshot.data?[index]['uid']),
+                  child: ListTile(
+                    title: Text(snapshot.data?[index]['nombre']),
+                    onTap: (() async{
+                      await Navigator.pushNamed(context, "/edit", arguments: {
+                        "nombre": snapshot.data?[index]['nombre'],
+                        "uid": snapshot.data?[index]['uid']
+                        });
+                        setState(() {});
+                    }),
+                  ),
+                );
               },
             );
             //En caso contrario, mostrar simplemente un circulo de carga
