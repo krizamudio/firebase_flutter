@@ -32,7 +32,7 @@ class _EditNombreState extends State<EditNombre> {
               TextField(
                 //Mando llamar al controlador
                 controller: nombreControlador,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Modifica el nombre',
                 ),
               ),

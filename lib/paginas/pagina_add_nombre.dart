@@ -28,7 +28,7 @@ class _AddNombreState extends State<AddNombre> {
               TextField(
                 //Mando llamar al controlador
                 controller: nombreControlador,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Ingresa un nombre',
                 ),
               ),

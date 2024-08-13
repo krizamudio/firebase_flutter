@@ -42,15 +42,15 @@ class _HomeState extends State<Home> {
                             }, child: const Text("Cancelar", style: TextStyle(color: Colors.red))),
                             TextButton(onPressed: () {
                               return Navigator.pop(context,true);
-                            }, child: Text("Si"))
+                            }, child: const Text("Si"))
                           ],
                         );
                       });
                       return resultado;
                   },
                   background: Container(
-                    child: const Icon(Icons.delete),
                     color: Colors.red,
+                    child: const Icon(Icons.delete),
                   ),
                   direction: DismissDirection.endToStart,
                   key: Key(snapshot.data?[index]['uid']),

@@ -10,14 +10,14 @@ Future<List> obtenerDatos() async {
   CollectionReference collectionReferenceGente = db.collection('bd_usuarios');
 
   QuerySnapshot queryGente = await collectionReferenceGente.get();
-  queryGente.docs.forEach((documento){
+  for (var documento in queryGente.docs) {
     final Map<String, dynamic> datos = documento.data() as Map<String, dynamic>;
     final persona = {
       "nombre": datos['nombre'],
       "uid": documento.id,
     };
     gente.add(persona);
-  });
+  }
   //Dar una duracion de 4 segundos para mostrar que el circulo funciona
   await Future.delayed(const Duration(seconds: 2));
   return gente;
