@@ -8,7 +8,7 @@ import 'firebase_options.dart';
 
 void main () async{
   WidgetsFlutterBinding.ensureInitialized();
-  //Sin este codigo, no se puede depurara la aplicación
+  //Sin este codigo, no se puede depurarar la aplicación
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
